@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: neural-pilot-backend
+    env: python
+    region: oregon
+    buildCommand: |
+      cd Backend
+      pip install -r requirements.txt
+      python manage.py makemigrations
+      python manage.py migrate
+      python manage.py collectstatic --noinput
+    startCommand: cd Backend && gunicorn --bind 0.0.0.0:$PORT config.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.13
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: KAGGLE_USERNAME
+        sync: false
+      - key: KAGGLE_KEY
+        sync: false

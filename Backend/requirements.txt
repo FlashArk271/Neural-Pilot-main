@@ -28,3 +28,5 @@ scipy==1.14.1
 seaborn==0.13.2
 spacy==3.8.4
 xgboost==3.0.0
+gunicorn==21.2.0
+whitenoise==6.6.0

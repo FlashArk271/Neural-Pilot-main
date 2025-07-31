@@ -12,3 +12,4 @@ ENV/
 .Python
 staticfiles/
 .env
+db.sqlite3

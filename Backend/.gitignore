@@ -2,3 +2,8 @@ db.sqlite3
 cache_db_0.11.db.wal
 cache
 .db.sqlite3
+staticfiles/
+media/
+*.pyc
+__pycache__/
+.env
